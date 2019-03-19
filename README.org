@@ -1,0 +1,6 @@
+#+title: DAX Util
+
+This package provides C++ functions and classes to support writing applications that participate in ~daxnet~.
+
+It requires [[https://github.com/brettviren/daxproto][daxproto]] as well as ZeroMQ, CZMQ and Zyre.
+
