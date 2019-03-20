@@ -6,7 +6,7 @@ from waflib.Utils import to_list
 sys.path.append('waftools')
 
 
-pkg_deps = ['libzmq','libczmq', 'libzyre', 'daxproto']
+pkg_deps = ['libzmq','libczmq', 'libzyre', 'libdaxproto']
 
 
 def options(opt):
@@ -35,6 +35,7 @@ def build(bld):
     bld.load('utests')
 
     uses = [p.upper() for p in pkg_deps]
+
     rpath = [bld.env["PREFIX"] + '/lib']
     for u in uses:
         p = bld.env["LIBPATH_%s"%u]
@@ -55,3 +56,5 @@ def build(bld):
     bld.install_files('${PREFIX}/include/dax', bld.path.ant_glob("inc/dax/*.hpp"))
 
     bld.utesting('daxnet', uses)
+
+    
